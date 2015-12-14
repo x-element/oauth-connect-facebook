@@ -14,11 +14,10 @@
       endpoint="{{endpoint}}"
       redirect_uri="{{redirect_uri}}"
       scope="{{scope}}"
-      scope-prefix="openid"
       scope-delimiter=","
       url-params="{{urlParams}}"
       display="{{display}}"
-      type="2.0"
+      type="2.5"
       popup-width="{{popupWidth}}"
       popup-height="{{popupHeight}}"
       client_id="{{client_id}}">
@@ -43,7 +42,9 @@
       redirect_uri: {
         type: String,
         value: function () {
-          return window.location.origin || window.location.protocol + '//' + window.location.host;
+          var uri = window.location.origin + '/' || 
+            window.location.protocol + '//' + window.location.host + '/';
+          return uri;
         }
       },
       scope: {
